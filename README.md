@@ -13,3 +13,12 @@ and then calls the `eval` command
     getaws myprofile
 
 `clearaws` - Just unsets the main AWS variables
+
+
+EXAMPLE
+
+    % getaws gcsf
+    You are: sweharris
+    Your MFA device is: arn:aws:iam::123456789012:mfa/sweharris
+    Enter your MFA code now: 299255
+    Keys valid until 2017-11-04T02:12:13Z
