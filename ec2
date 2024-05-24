@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Example of how to use get-creds-from-role to become EC2PowerUser
+# NOTE: we overwrite the whole of ~/.aws/credentials
+
+unset AWS_PROFILE AWS_SESSION_TOKEN AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID
+eval $(get-creds-from-role EC2PowerUser)
+
+if [ ! -z "$AWS_SESSION_TOKEN" ]
+then
+  echo "[default]
+aws_access_key_id=$AWS_ACCESS_KEY_ID
+aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
+aws_session_token=$AWS_SESSION_TOKEN
+region=us-east-1
+" > ~/.aws/credentials
+else
+  echo Failed
+fi
